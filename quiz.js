@@ -190,7 +190,7 @@ const mcQues = [
       b: "Experiment",
       c: "Correlational study"
     },
-    correctAnswer: "a"
+	correctAnswer: "a"
   }
 ];
 const defineQues = [
