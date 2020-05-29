@@ -42,6 +42,8 @@ function buildDefineQues(ques){
 }
 
 function showSAResults(){
+	saButton.disabled = true;
+
 	const quesContainers = defineContainer.querySelectorAll('.defquestion');
 	let correct = 0;
 	defineQues.forEach((currentQues,quesNum)=>{
@@ -57,13 +59,16 @@ function showSAResults(){
 		}
 		if(!(ifCorrect)){
 			quesContainers[quesNum].style.color = 'red';
-			document.getElementById("ques" + quesNum).value = currentQues.answer;
+			document.getElementById("ques" + quesNum).value = "Correct Answer: " + currentQues.answer;
 		}
 	});
 	SaResultContainer.innerHTML = `You got ${correct} out of ${defineQues.length}`;
 }
 
+
 function showMcResults(){
+	mcButton.disabled = true;
+
 	const answerContainers = McContainer.querySelectorAll('.answers');
 	const quesContainers = McContainer.querySelectorAll('.question');
 	let correct = 0;
@@ -168,34 +173,87 @@ const mcQues = [
       c: "Refers to the fact that correlation does not mean causation."
     },
     correctAnswer: "b"
+  },
+  {
+    question: "Why aren't experiment always the best option?",
+    answers: {
+      a: "It does not suggest cause and effect relationship",
+      b: "There are ethical concerns",
+      c: "It is always more expensive than other research methods"
+    },
+    correctAnswer: "b"
+  },
+  {
+    question: "What is phineas gage an example of?",
+    answers: {
+      a: "Case study",
+      b: "Experiment",
+      c: "Correlational study"
+    },
+    correctAnswer: "a"
   }
 ];
 const defineQues = [
 	{
 		question: "Define independent variable: ",
 		keywords: ["manipulate","change","experimented","does not dependent","studied"],
-		answer:"correct answer: can be something like: the variable that is controlled and manipulated by the experimenter"
+		answer:"can be something like: the variable that is controlled and manipulated by the experimenter"
 	},
 	{
-		question: "A student wants to investigate the effect of ADHD. What research method is the most suitable?",
-		keywords: ["naturalistic observation","observation"],
-		answer: "correct answer: natrualistic observation"
+		question: "A student wants to investigate the effect of schizophrenia on behavior. What research method is the most suitable?",
+		keywords: ["naturalistic observation","case study"],
+		answer: "natrualistic observation or case study"
 	},
 	{	
 		question: "A researcher studies a group of students for several month. What research method is the researcher utilizing?",
 	 	keywords: ["longitudinal study","longitudinal"],
-		answer: "correct answer: longitudinal study"
+		answer: "longitudinal study"
 	},
 	{
-		question:"In a experiment,a researcher uses a random number generator to determine which group a participant is assigned to. What is the researcher utilizing?",
+		question:"In an experiment,a researcher uses a random number generator to determine which group a participant is assigned to. What is the researcher utilizing?",
 		keywords:["random assignment"],
-		answer:"correct answer: random assignment"
+		answer:"random assignment"
 	},
 	{
 		question: "Define operational defination",
 		keywords:["exact","carefully worded","statement"],
-		answer: "correct answer: a carefully worded statement of the operations used in a research"
-	}
+		answer: "a carefully worded statement of the operations used in a research"
+	},
+	{
+		question: "In a study, researchers are trying to determine the effect of sunlight on student's performance in a test. What is the independent variable?",
+		keywords:["sunlight","effect of sunlight","light"],
+		answer:"the effect of sunlight"
+	},
+	{
+		question: "For the same study as the last question. What would be an operational defination of the dependent variable?",
+		keywords:["score","numerical score","grade","mark"],
+		answer:"the numerical score or grade mark students received on the test"
+	},
+	{
+		question: "Find mean of this set of data: [4,7,8,2,5,7,9]",
+		keywords:["6","six"],
+		answer:"(4+7+8+2+5+7+9)/7=6"
+	},
+	{
+		question: "Which term refers to perceiving a relationship between variables even when no such relationship exists",
+		keywords:["illusory correlation"],
+		answer:"illusory correlation"
+	},
+	{
+		question: "Define mode:",
+		keywords:["occured most frequent","most frequent","occured the most","occured most","most commmon","most often"],
+		answer:"the value occured most often"
+	},
+	{
+		question: "A researcher randomly selects people to participate in a research. What selection method is the researcher utilizing?",
+		keywords:["random selection"],
+		answer:"random selection"
+	},
+	{
+		question: "Find the median of this sorted data set: [2,4,5,7,8,9,12]",
+		keywords:["7","seven"],
+		answer:"the value in the middle is 7"
+	},
 ];
 
 buildMc(mcQues);
